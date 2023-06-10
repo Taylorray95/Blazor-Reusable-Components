@@ -1,0 +1,29 @@
+<select @oninput="@HandleChange">
+    @foreach (var x in Options!)
+    {
+        <option value="@x.Key">
+            @x.Value
+        </option>
+    }
+</select>
+
+@code {             
+
+    [Parameter]
+    public List<KeyValuePair<string, string>>? Options { get; set; } = new();
+
+    private string? SelectedKey { get; set; } = "";
+
+    [Parameter]
+    public EventCallback<string> OnOptionChanged { get; set; }
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        SelectedKey = e?.Value!.ToString()!.Trim();
+
+        await OnOptionChanged.InvokeAsync(SelectedKey);
+
+    }
+
+
+}

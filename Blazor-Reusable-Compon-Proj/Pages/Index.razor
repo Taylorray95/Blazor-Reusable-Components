@@ -1,0 +1,48 @@
+﻿@page "/"
+<h1>Single Select Component</h1>
+Please make a selection: 
+<br/>
+<SelectComponent Options="@dropDownOptions" OnOptionChanged="OnOptionChanged"></SelectComponent>
+<br/>
+@SelectedKey
+
+<h1>Multi Select Component (Hold down shift/control key to select each additional item )</h1>
+
+<MultiSelectComponent Options="@dropDownOptions" OnOptionChanged="OnMultiOptionChanged"></MultiSelectComponent>
+<br/>
+@foreach (var x in SelectedKeysMulti)
+{
+   @x <br/>
+}
+
+
+@code {
+    private List<KeyValuePair<string, string>>? dropDownOptions = new();
+
+    private string? SelectedKey { get; set; } = "";
+
+    private List<string>? SelectedKeysMulti = new();
+    
+    protected override void OnInitialized()
+    {
+        dropDownOptions.Insert(0,new KeyValuePair<string, string>("1","Item 1"));
+        dropDownOptions.Insert(1,new KeyValuePair<string, string>("2","Item 2"));
+        dropDownOptions.Insert(2,new KeyValuePair<string, string>("3","Item 3"));
+        dropDownOptions.Insert(3,new KeyValuePair<string, string>("4","Item 4"));
+        dropDownOptions.Insert(4,new KeyValuePair<string, string>("5","Item 5"));
+        dropDownOptions.Insert(5,new KeyValuePair<string, string>("6","Item 6"));
+        base.OnInitialized();
+    }
+
+    private void OnOptionChanged(string selectedKey)
+    {
+        SelectedKey = selectedKey;
+    }
+    private void OnMultiOptionChanged(List<string> selectedKeys)
+    {
+        SelectedKeysMulti = selectedKeys;
+    }
+    
+
+
+}
