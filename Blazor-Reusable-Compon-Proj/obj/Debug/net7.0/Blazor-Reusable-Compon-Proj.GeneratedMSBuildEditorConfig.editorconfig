@@ -1,4 +1,8 @@
 is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net7.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -9,33 +13,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Blazor-Reusable-Compon-Proj
 build_property.RootNamespace = Blazor-Reusable-Compon-Proj
-build_property.ProjectDir = /Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/
+build_property.ProjectDir = C:\Users\taylo\OneDrive\Desktop\ReusableComponents\Blazor-Reusable-Components\Blazor-Reusable-Compon-Proj\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj
+build_property.MSBuildProjectDirectory = C:\Users\taylo\OneDrive\Desktop\ReusableComponents\Blazor-Reusable-Components\Blazor-Reusable-Compon-Proj
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/App.razor]
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/Components/MultiSelectComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9NdWx0aVNlbGVjdENvbXBvbmVudC5yYXpvcg==
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/Components/MultiSelectComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNdWx0aVNlbGVjdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/Components/SelectComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TZWxlY3RDb21wb25lbnQucmF6b3I=
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/Components/SearchBoxComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZWFyY2hCb3hDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/MainLayout.razor]
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/Components/SelectComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZWxlY3RDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/taylorleavelle/RiderProjects/Blazor-Reusable-Components-Sln/Blazor-Reusable-Compon-Proj/_Imports.razor]
+[C:/Users/taylo/OneDrive/Desktop/ReusableComponents/Blazor-Reusable-Components/Blazor-Reusable-Compon-Proj/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

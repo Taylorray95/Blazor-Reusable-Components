@@ -1,36 +1,54 @@
 ﻿@page "/"
+@using System.Collections.Generic
+
 <h1>Single Select Component</h1>
 Please make a selection: 
 <br/>
 <SelectComponent Options="@dropDownOptions" OnOptionChanged="OnOptionChanged"></SelectComponent>
 <br/>
-@SelectedKey
+
+<span>[SelectComponent] Selected key: @SelectedKey</span>
 
 <h1>Multi Select Component (Hold down shift/control key to select each additional item )</h1>
 
 <MultiSelectComponent Options="@dropDownOptions" OnOptionChanged="OnMultiOptionChanged"></MultiSelectComponent>
 <br/>
-@foreach (var x in SelectedKeysMulti)
+
+<span>[MultiSelectComponent] Selected key(s):</span>
+@foreach (var x in SelectedKeysMulti!)
 {
    @x <br/>
 }
 
+<br />
+<h1>Search Box Component:</h1>
+<SearchBoxComponent Options="@dropDownOptions" OnSelectionMade="HandleSelectionSearch" Width="50%" />
+<br />
+
+@if (!string.IsNullOrWhiteSpace(selectedOptionSearch))
+{
+    <p>Search Component Selected Option: @selectedOptionSearch</p>
+}
 
 @code {
     private List<KeyValuePair<string, string>>? dropDownOptions = new();
 
     private string? SelectedKey { get; set; } = "";
 
+    private string? selectedOptionSearch { get; set; } = "";
+
     private List<string>? SelectedKeysMulti = new();
+
+
     
     protected override void OnInitialized()
     {
-        dropDownOptions.Insert(0,new KeyValuePair<string, string>("1","Item 1"));
-        dropDownOptions.Insert(1,new KeyValuePair<string, string>("2","Item 2"));
-        dropDownOptions.Insert(2,new KeyValuePair<string, string>("3","Item 3"));
-        dropDownOptions.Insert(3,new KeyValuePair<string, string>("4","Item 4"));
-        dropDownOptions.Insert(4,new KeyValuePair<string, string>("5","Item 5"));
-        dropDownOptions.Insert(5,new KeyValuePair<string, string>("6","Item 6"));
+        dropDownOptions!.Insert(0,new KeyValuePair<string, string>("84958","Lacey, Bob"));
+        dropDownOptions!.Insert(1,new KeyValuePair<string, string>("94884","Adam, Apple"));
+        dropDownOptions!.Insert(2,new KeyValuePair<string, string>("22334","Big, Guy"));
+        dropDownOptions!.Insert(3,new KeyValuePair<string, string>("44432","Sauce, Apple"));
+        dropDownOptions!.Insert(4,new KeyValuePair<string, string>("53234","Flave, Flava"));
+        dropDownOptions!.Insert(5,new KeyValuePair<string, string>("63232","Boom, Bob"));
         base.OnInitialized();
     }
 
@@ -43,6 +61,9 @@ Please make a selection:
         SelectedKeysMulti = selectedKeys;
     }
     
-
+    private void HandleSelectionSearch(string key)
+    {
+        selectedOptionSearch = key;
+    }
 
 }

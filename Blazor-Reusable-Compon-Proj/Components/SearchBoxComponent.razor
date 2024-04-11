@@ -1,0 +1,70 @@
+﻿<div class="search-box">
+    <input class="form-control" @oninput="HandleInput" @onkeydown="HandleKeyDown" value="@SearchText"
+           style="width:@Width" placeholder="Type to search..." disabled="@IsDisabled" />
+    @if (!string.IsNullOrWhiteSpace(SearchText))
+    {
+        <ul class="results-list" style="width:@Width">
+            @for (int i = 0; i < FilteredOptions.Count(); i++)
+            {
+                var option = FilteredOptions.ElementAt(i);
+                <li @onclick="() => SelectOption(option.Key)"
+                    class="@(i == HighlightedIndex ? "highlighted" : "")">
+                    <span> @option.Key <text>&nbsp;&nbsp;</text> @option.Value </span>
+                </li>
+            }
+        </ul>
+    }
+</div>
+<style>
+    .highlighted{
+        background-color: #f0f0f0;
+    }
+</style>
+@code {
+    [Parameter]
+    public List<KeyValuePair<string, string>> Options { get; set; } = new List<KeyValuePair<string, string>>();
+    [Parameter]
+    public EventCallback<string> OnSelectionMade { get; set; }
+    [Parameter]
+    public string Width { get; set; } = "100%";
+    [Parameter]
+    public bool IsDisabled { get; set; } = false;
+    private string SearchText { get; set; } = string.Empty;
+    private int HighlightedIndex { get; set; } = -1; 
+
+    private IEnumerable<KeyValuePair<string, string>> FilteredOptions => Options
+        .Where(option => option.Value.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                         option.Key.Contains(SearchText, StringComparison.OrdinalIgnoreCase))
+        .ToList();
+
+    private void HandleInput(ChangeEventArgs args)
+    {
+        SearchText = args.Value?.ToString() ?? string.Empty;
+        HighlightedIndex = 0; 
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs args)
+    {
+        var optionsCount = FilteredOptions.Count();
+        if (args.Key == "ArrowDown")
+        {
+            HighlightedIndex = (HighlightedIndex + 1) % optionsCount;
+        }
+        else if (args.Key == "ArrowUp")
+        {
+            HighlightedIndex = (HighlightedIndex - 1 + optionsCount) % optionsCount;
+        }
+        else if (args.Key == "Enter" && optionsCount > 0 && HighlightedIndex >= 0)
+        {
+            var selectedOption = FilteredOptions.ElementAt(HighlightedIndex);
+            await SelectOption(selectedOption.Key);
+        }
+    }
+
+    private async Task SelectOption(string key)
+    {
+        await OnSelectionMade.InvokeAsync(key);
+        SearchText = string.Empty;
+        HighlightedIndex = -1; 
+    }
+}
